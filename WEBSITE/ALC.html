@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="ALC.css">
+  <script src="ALC.js" defer></script>
+<title>คุณคือเหล้าประเภทไหน?</title>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+
+<div class="ad-overlay" id="adOverlay">
+  <div class="ad-box">
+    <img src="ADS3.png" alt="Advertisement">
+    <button class="ad-close" onclick="document.getElementById('adOverlay').style.display='none'" title="ปิด">✕</button>
+  </div>
+</div>
+
+<div class="quiz-wrap" id="quizWrap">
+  <div class="right-header">
+    <div class="header-left">
+      <div class="header-brand">ALC. Rating Levels Test</div>
+      <a href="https://discord.gg/GjqPXgNyag" target="_blank" class="discord-link">
+        <img src="https://www.internetmatters.org/wp-content/uploads/2025/01/Minecraft-feature.webp" alt="Minecraft" class="hover-img">
+        <div class="link-content">
+          <img src="https://cdn-icons-png.freepik.com/512/3670/3670157.png" alt="Discord" class="discord-icon">
+          <span>ไว้เล่น Minecraft กัน</span>
+        </div>
+      </a>
+    </div>
+    <div class="q-badge" id="qCounter">1 / 20</div>
+  </div>
+
+  <div class="prog-bar-wrap">
+    <span class="prog-label">ความคืบหน้า</span>
+    <div class="prog-track"><div class="prog-fill" id="progFill"></div></div>
+    <span class="prog-count" id="progText">0 / 20</span>
+  </div>
+
+  <div class="drunk-bar-wrap">
+    <span class="drunk-label">ค่าความเมา</span>
+    <div class="drunk-score-pill" id="drunkPill">0</div>
+  </div>
+
+  <div class="card-stage" id="cardStage">
+    <div class="cards-track" id="cardsTrack"></div>
+  </div>
+
+  <div class="right-footer">
+    <div class="footer-comment" id="footerComment">
+      <div class="footer-comment-bubble" id="footerBubble">
+        <span class="cb-emoji" id="bubbleEmoji">💬</span>
+        <span id="bubbleText"></span>
+      </div>
+    </div>
+    <div class="nav-row">
+      <button class="nav-btn" id="prevBtn" onclick="navigate(-1)" disabled>‹ ก่อน</button>
+      <button class="next-btn" id="nextBtn" onclick="navigate(1)">ถัดไป ›</button>
+    </div>
+  </div>
+</div>
+
+<div class="result-page" id="resultPage">
+  <div class="result-heading">
+    <h1>ผลการวิเคราะห์</h1>
+    <p>ความเมาของคุณอยู่ที่</p>
+  </div>
+  <div class="result-card" id="resultCard"></div>
+  <div class="score-section">
+    <div class="score-title">คะแนนความเมาสุดท้าย</div>
+    <div class="score-row" id="scoreRow"></div>
+  </div>
+  <div class="action-row">
+    <button class="retry-btn" onclick="retryQuiz()">ทำแบบทดสอบใหม่</button>
+    <button class="share-icon-btn" onclick="openShareSheet()" title="แชร์ผลลัพธ์">
+      <img src="share.png" alt="Share" onerror="this.style.display='none';this.parentNode.innerHTML='📤'">
+    </button>
+  </div>
+</div>
+
+<div class="share-overlay" id="shareOverlay" onclick="handleOverlayClick(event)">
+  <div class="share-sheet" id="shareSheet">
+    <div class="sheet-handle"></div>
+    <div class="sheet-title">แชร์ผลลัพธ์</div>
+    <div class="sheet-actions">
+      <button class="sheet-action save-action" onclick="saveResultImage()">
+        <div class="sheet-action-circle" style="background:#ffffff;">
+          <span style="color:#000000;">P</span>
+        </div>
+        <div class="sheet-action-label">เซฟรูปภาพ</div>
+      </button>
+      <button class="sheet-action fb-action" onclick="shareToFacebook()">
+        <div class="sheet-action-circle" style="background:#1877F2;">
+          <span style="color:#fff;font-size:32px;font-weight:900;font-family:Georgia,serif;">f</span>
+        </div>
+        <div class="sheet-action-label">Facebook</div>
+      </button>
+      <button class="sheet-action x-action" onclick="shareToX()">
+        <div class="sheet-action-circle" style="background:#000;">
+          <span style="color:#fff;font-size:22px;font-weight:900;font-family:sans-serif;">𝕏</span>
+        </div>
+        <div class="sheet-action-label">X (Twitter)</div>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="save-loading" id="saveLoading">
+  <div class="save-spinner"></div>
+  <div class="save-loading-text">กำลังสร้างรูปภาพ...</div>
+</div>
+</body>
+</html>

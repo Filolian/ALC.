@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="login.css">
+  <script src="login.js" defer></script>
+  <title>ALC.</title>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600;700;900&family=Sarabun:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <div class="bg-image"></div>
+
+  <nav>
+    <a class="logo" href="#">
+      <div class="logo-fallback" id="logoFallback">QV</div>
+      <img class="logo-img" id="logoImg" src="logo.png" alt="Logo"
+        onload="this.style.display='block'; document.getElementById('logoFallback').style.display='none';"
+        onerror="this.style.display='none'; document.getElementById('logoFallback').style.display='flex';" />
+      <span class="logo-text">ALC. Rating<span> Levels Test</span></span>
+    </a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-left">
+
+      <h1 class="hero-title">
+        คุณคือ<br/>
+        <span class="line-accent">เหล้า</span><br/>
+        ประเภทไหน
+      </h1>
+
+      <div class="typewriter-wrap">
+        <div class="typewriter" id="typewriter"></div>
+      </div>
+
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="openModal()">
+          <span></span> เริ่มทำแบบทดสอบ
+        </button>
+      </div>
+
+    </div>
+
+  <div class="modal-overlay" id="langModal" onclick="handleOverlayClick(event)">
+    <div class="modal-box">
+      <div class="modal-icon"></div>
+      <div class="modal-title">เลือกภาษา</div>
+      <div class="modal-sub">ภาษาคนก็ได้ภาษาเทพก็ดี</div>
+      <div class="modal-buttons">
+        <a href="ALC.html" class="modal-btn modal-btn-thai">
+          ภาษาไทย
+        </a>
+        <a href="ALC2.html" class="modal-btn modal-btn-divine">
+          ภาษาเทพ
+        </a>
+      </div>
+      <button class="modal-close" onclick="closeModal()">ยกเลิก</button>
+    </div>
+  </div>
+
+</body>
+</html>
